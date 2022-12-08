@@ -1,21 +1,24 @@
 import './Login.css'
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { useLoginUserMutation } from '../services/appApi'
 import { Link, useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/appContext'
+
+import { useLoginUserMutation } from '../services/appApi'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+  const { socket } = useContext(AppContext)
   const [loginUser, { isLoading, error }] = useLoginUserMutation()
+
   function handleLogin(e) {
     e.preventDefault()
-    // login logic
     loginUser({ email, password }).then(({ data }) => {
       if (data) {
-        // navigate to the chat
+        socket.emit('new-user')
         navigate('/chat')
       }
     })
@@ -32,6 +35,7 @@ const Login = () => {
           <Form style={{ width: '80%', maxWidth: 500 }} onSubmit={handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
+
               <Form.Control
                 type="email"
                 placeholder="Digite seu email"
@@ -39,6 +43,7 @@ const Login = () => {
                 value={email}
                 required
               />
+
               <Form.Text className="text-muted">
                 Nós nunca compartilharemos seu email com ninguém
               </Form.Text>
@@ -54,9 +59,11 @@ const Login = () => {
                 required
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Lembrar de mim" />
             </Form.Group>
+
             <Button variant="primary" type="submit">
               Login
             </Button>
