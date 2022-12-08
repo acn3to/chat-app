@@ -5,12 +5,15 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import botImg from '../assets/bot.png'
+import { useSignupUserMutation } from '../services/appApi'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
+  const [signupUser, { isLoading, error }] = useSignupUserMutation()
 
+  //image upload states
   const [image, setImage] = useState(null)
   const [uploadingImg, setUploadingImg] = useState(false)
   const [imagePreview, setImagePreview] = useState(null)
@@ -49,6 +52,12 @@ const Signup = () => {
     if (!image) return alert('Por favor faça o upload de uma foto de perfil')
     const url = await uploadImage(image)
     console.log(url)
+    // signup the user
+    signupUser({ name, email, password, picture: url }).then(({ data }) => {
+      if (data) {
+        console.log(data)
+      }
+    })
   }
 
   return (
