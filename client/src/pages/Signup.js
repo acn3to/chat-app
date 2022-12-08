@@ -2,7 +2,7 @@ import './Signup.css'
 
 import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import botImg from '../assets/bot.png'
 import { useSignupUserMutation } from '../services/appApi'
@@ -12,6 +12,7 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [signupUser, { isLoading, error }] = useSignupUserMutation()
+  const navigate = useNavigate()
 
   //image upload states
   const [image, setImage] = useState(null)
@@ -56,6 +57,7 @@ const Signup = () => {
     signupUser({ name, email, password, picture: url }).then(({ data }) => {
       if (data) {
         console.log(data)
+        navigate('/chat')
       }
     })
   }
