@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Form, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Login.css'
 
 const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  function handleLogin(e) {
+    e.preventDefault()
+  }
+
   return (
     <Container>
       <Row>
@@ -12,10 +19,16 @@ const Login = () => {
           md={7}
           className="d-flex align-items-center justify-content-center flex-direction-column"
         >
-          <Form style={{ width: '80%', maxWidth: 500 }}>
+          <Form style={{ width: '80%', maxWidth: 500 }} onSubmit={handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Digite seu email" />
+              <Form.Control
+                type="email"
+                placeholder="Digite seu email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+              />
               <Form.Text className="text-muted">
                 Nós nunca compartilharemos seu email com ninguém
               </Form.Text>
@@ -23,7 +36,13 @@ const Login = () => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Senha</Form.Label>
-              <Form.Control type="password" placeholder="Digite sua senha" />
+              <Form.Control
+                type="password"
+                placeholder="Digite sua senha"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Lembrar de mim" />
