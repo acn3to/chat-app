@@ -1,27 +1,24 @@
 import React from 'react'
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar, Container, Button, NavDropdown } from 'react-bootstrap'
+import { useLogoutUserMutation } from '../services/appApi'
 import { useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useLogoutUserMutation } from '../services/appApi'
 import logo from '../assets/logo.png'
-
-const Navigation = () => {
+function Navigation() {
   const user = useSelector((state) => state.user)
   const [logoutUser] = useLogoutUserMutation()
   async function handleLogout(e) {
     e.preventDefault()
     await logoutUser(user)
 
-    // redirect to the home page
     window.location.replace('/')
   }
-
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src={logo} style={{ width: 50, height: 50 }} alt="Logo" />
+            <img src={logo} style={{ width: 50, height: 50 }} />
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -54,14 +51,6 @@ const Navigation = () => {
                 }
                 id="basic-nav-dropdown"
               >
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-
                 <NavDropdown.Item>
                   <Button variant="danger" onClick={handleLogout}>
                     Logout
