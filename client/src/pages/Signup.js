@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
-import { Button, Container, Form, Col, Row } from 'react-bootstrap'
 import './Signup.css'
-import botImg from '../assets/bot.jpg'
+
+import React, { useState } from 'react'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
+import botImg from '../assets/bot.png'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
 
-  //image upload states
   const [image, setImage] = useState(null)
   const [uploadingImg, setUploadingImg] = useState(false)
   const [imagePreview, setImagePreview] = useState(null)
