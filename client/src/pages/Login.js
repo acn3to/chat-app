@@ -32,7 +32,10 @@ const Login = () => {
           md={7}
           className="d-flex align-items-center justify-content-center flex-direction-column"
         >
-          <Form style={{ width: '80%', maxWidth: 500 }} onSubmit={handleLogin}>
+          <Form
+            style={{ width: '80%', maxWidth: 500, marginTop: '5vh' }}
+            onSubmit={handleLogin}
+          >
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
 

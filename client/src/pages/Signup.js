@@ -69,7 +69,10 @@ const Signup = () => {
           md={7}
           className="d-flex align-items-center justify-content-center flex-direction-column"
         >
-          <Form style={{ width: '80%', maxWidth: 500 }} onSubmit={handleSignup}>
+          <Form
+            style={{ width: '80%', maxWidth: 500, marginTop: '5vh' }}
+            onSubmit={handleSignup}
+          >
             <h1 className="text-center">Criar conta</h1>
             <div className="signup-profile-pic__container">
               <img

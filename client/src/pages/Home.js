@@ -8,7 +8,7 @@ function Home() {
     <Row>
       <Col
         md={6}
-        className="d-flex flex-direction-column align-items-center justify-content-center"
+        className="d-flex flex-direction-column align-items-center justify-content-center m-4"
       >
         <div>
           <h1>Compartilhe e adquira conhecimento!</h1>
@@ -23,7 +23,7 @@ function Home() {
           </LinkContainer>
         </div>
       </Col>
-      <Col md={6} className="home__bg"></Col>
+      <Col className="home__bg"></Col>
     </Row>
   )
 }
