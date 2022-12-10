@@ -95,6 +95,11 @@ const Signup = () => {
                 placeholder="Digite seu nome"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                pattern={'[A-z]{3,}'}
+                title={
+                  'Seu nome precisa ter pelo menos 3 letras e não possuir numeros ou caracteres especiais'
+                }
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -104,6 +109,8 @@ const Signup = () => {
                 placeholder="Digite seu email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
+                title={'Preencha este campo com um endereço de email válido'}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -113,7 +120,27 @@ const Signup = () => {
                 placeholder="Digite sua senha"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
+                pattern={
+                  '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,24}$'
+                }
+                title={`
+• A senha deve ter entre 8 e 24 dígitos
+• Pelo menos uma letra minúscula
+• Pelo menos uma letra minúscula 
+• Pelo menos um número
+• Pelo menos um caractere especial
+`}
+                required
               />
+
+              <Form.Group className="mb-3 mt-3" controlId="formBasicCheckbox">
+                <Form.Check
+                  type="checkbox"
+                  label="Aceitar os termos de uso"
+                  tile={'Aceite os termos de uso para registrar-se'}
+                  required
+                />
+              </Form.Group>
             </Form.Group>
             <Button variant="primary" type="submit">
               {uploadingImg ? 'Registrando sua conta...' : 'Registrar'}
