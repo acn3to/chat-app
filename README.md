@@ -18,7 +18,7 @@ Cadastre-se, faça login e comunique-se com pessoas do mundo inteiro em tempo re
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
-### Construído com
+## Construído com
 
 <img align="center" alt="Node-Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"> [Node.js](https://nodejs.org/en/download/)
 <br><br>
@@ -32,14 +32,14 @@ Cadastre-se, faça login e comunique-se com pessoas do mundo inteiro em tempo re
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
-### Pré-requisitos
+## Pré-requisitos
 
 Para acessar o projeto em seu ambiente local, sugiro que
 tenha o [Git](https://git-scm.com/) instalado.
 
 É indispensável que você possua o [Node.js](https://nodejs.org/en/download/), assim como uma conta e uma cluster criada no [MongoDB](https://cloud.mongodb.com/).
 
-### Instalação
+## Instalação
 
 1. Clone o repositório
 
@@ -53,12 +53,13 @@ git clone https://github.com/acn3to/chat-app.git
 npm install
 ```
 
-3. Crie um arquivo `.env` e preencha com as suas credencias de acesso à cluster criada no MongoDB
+3. Crie um arquivo `.env` e preencha com a URI de conexão a sua cluster fornecida pelo MongoDB
 
 ```js
-DB_PW = 'SEU PASSWORD'
-DB_USER = 'SEU NOME DE USUARIO'
+DB_URI = 'SUA URI FORNECIDA PELO MONGODB'
 ```
+
+_Em sua URI, não se esqueça de substituir < password > pela senha e < username > pelo usuário._
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
