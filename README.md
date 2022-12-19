@@ -22,6 +22,8 @@ Cadastre-se, faça login e comunique-se com pessoas do mundo inteiro em tempo re
 
 <img align="center" alt="Node-Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"> [Node.js](https://nodejs.org/en/download/)
 <br><br>
+<img align="center" alt="Express-Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"> [Express](https://expressjs.com/)
+<br><br>
 <img align="center" alt="MongoDB-Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"> [MongoDB](https://www.mongodb.com/)
 <br><br>
 <img align="center" alt="React-Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"> [React](https://pt-br.reactjs.org/)
